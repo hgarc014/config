@@ -1,0 +1,7 @@
+[user]
+	name = Henry Garcia
+	email = hgarc014@ucr.edu
+[push]
+	default = simple
+[credential]
+	helper = cache --timeout=3600
