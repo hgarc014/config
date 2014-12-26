@@ -22,6 +22,7 @@ syntax on
 filetype plugin on
 
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown   "add md as markdown filetype
+autocmd BufNewFile,BufReadPost *.html set filetype=html     "add md as markdown filetype
 nnoremap Q <nop>                                            "remove annoying ex-mode feature
 au BufWinLeave * mkview                                     "restore old state of file on reload
 "au BufWinEnter * silent loadview
@@ -70,7 +71,7 @@ hi SpellRare cterm=underline
 hi Comment cterm=none ctermfg=4             "comment color
 hi Constant cterm=none ctermfg=1            "constant color (strings etc)
 hi Identifier cterm=none ctermfg=6          "variable color
-hi Statement cterm=none ctermfg=green       "if, else, +, -, etc color
+hi Statement cterm=none ctermfg=46          "if, else, +, -, etc color
 hi PreProc cterm=none ctermfg=5             "pre processor stuff, #, etc
 hi Type cterm=none ctermfg=2                "variable type, char, int, etc
 hi Special cterm=none ctermfg=5             "special characters like \n
