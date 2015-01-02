@@ -152,3 +152,6 @@ md()
         pandoc -s -f markdown -t man $1 | man -l -
     fi
 }
+#alias for sshing
+alias sshwell='ssh hgarc014@well.cs.ucr.edu'
+
