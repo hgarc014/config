@@ -59,7 +59,9 @@ fi
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\w\n\[\033[01;32m\]\u\[\033[00m\]\$ '
+    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\w\n\[\033[01;32m\]\u\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -154,4 +156,12 @@ md()
 }
 #alias for sshing
 alias sshwell='ssh hgarc014@well.cs.ucr.edu'
+alias sshlab='ssh hgarc014@dblab-server.cs.ucr.edu'
+alias java1.8='/home/henry/Desktop/jre1.8.0_45/bin/java'
+alias cdsdf='cd ~/workspace/projects/SmartDocFinder/'
+alias sshsledge='ssh hgarc014@sledge.cs.ucr.edu'
+alias sshdragon='ssh dragonh1@107.180.21.22'
+alias sshTS='ssh 557f2f374382ecfc5a000088@tweetsearcher-programhenry.rhcloud.com'
+alias csmysql='mysql --user=mwile001 --password=d3143 -h 127.0.0.1 --port=3333'
+
 
