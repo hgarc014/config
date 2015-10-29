@@ -11,9 +11,16 @@ alias sshTS='ssh 557f2f374382ecfc5a000088@tweetsearcher-programhenry.rhcloud.com
 alias csmysql='mysql --user=mwile001 --password=d3143 -h 127.0.0.1 --port=3333'
 alias rm='rm -I'
 
-#USEFUL functions
+########################
+#USEFUL functions below
+########################
 
-#allow going back up to a previous folder in current path
+
+#############################################
+# upto "FOLDER"
+#
+# has autocomplete goes to previous folder in current path
+#############################################
 upto ()
 {
     if [ -z "$1" ]; then
@@ -30,7 +37,11 @@ _upto()
 }
 complete -F _upto upto
 
-#allows going down to a folder (can be slow)
+#############################################
+# jd "FOLDER"
+#
+# jump down to a folder (can be slow) 
+#############################################
 jd(){
     if [ -z "$1" ]; then
         echo "Usage: jd [directory]";
@@ -41,7 +52,11 @@ jd(){
 }
 shopt -s globstar
 
-#view markdown file in terminal 
+#############################################
+# md "file"
+#
+# view a markdown file in terminal
+#############################################
 md()
 {
     if [ -z $1 ];then
@@ -52,7 +67,11 @@ md()
             fi
 }
 
-#killport given port number
+#############################################
+# killport "port#"
+#
+# kill a port in use
+#############################################
 killport()
 {
     if [ -z $1 ]; then
@@ -61,6 +80,34 @@ killport()
     else
         fuser -k $1/tcp
             fi
+}
+
+
+#############################################
+# switchGitRemote 
+#
+# swaps git from https to ssh and vise versa 
+#############################################
+
+switchGitRemote()
+{
+    current=$(git remote -v | head -1)
+    httpurl="https://github.com/"
+    sshurl="git@github.com:"
+    if [[ "$current" == *"git@github.com:"* ]]; then
+        #echo "current had git@github.com:"
+        res=$(echo "$current" | cut -d' ' -f1 | cut -d':' -f2)
+        git remote set-url origin $httpurl$res
+        echo -e "converted\n $current\n to \n$httpurl$res"
+    elif [[ "$current" == *"https://github.com/"* ]]; then
+        #echo "current had https://github.com"
+        user=$(echo "$current" | cut -d'/' -f4)
+        res=$(echo "$current" | cut -d' ' -f1 | cut -d'/' -f5 )
+        res="$user/$res"
+        git remote set-url origin $sshurl$res
+        echo -e "converted\n $current\n to \n$sshurl$res"
+    fi
+
 }
 
 
