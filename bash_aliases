@@ -10,6 +10,7 @@ alias sshdragon='ssh dragonh1@107.180.21.22'
 alias sshTS='ssh 557f2f374382ecfc5a000088@tweetsearcher-programhenry.rhcloud.com'
 alias csmysql='mysql --user=mwile001 --password=d3143 -h 127.0.0.1 --port=3333'
 alias rm='rm -I'
+alias keystop='syndaemon -i 1 -K -d'
 
 ########################
 #USEFUL functions below
