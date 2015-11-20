@@ -2,9 +2,9 @@
 
 
 #Path to config file
-dir=$HOME/config
+dir=$HOME/dotfiles
 #Path to backup file
-olddir=$HOME/config_old
+olddir=$HOME/old_dotfiles
 #files in current directory
 files=$(ls -I *.sh)
 
