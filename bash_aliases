@@ -1,20 +1,19 @@
-export PATH=/home/henry/Software/activator-dist-1.3.10/bin/:$PATH
+# bash aliases and functions
 
-#alias for sshing
-alias sshwell='ssh hgarc014@well.cs.ucr.edu'
-#alias sshlab='ssh hgarc014@dblab-server.cs.ucr.edu'
-#alias java1.8='/home/henry/Desktop/jre1.8.0_45/bin/java'
-#alias cdsdf='cd ~/workspace/projects/SmartDocFinder/'
-alias cdp='cd ~/workspace/projects/'
-#alias sshsledge='ssh hgarc014@sledge.cs.ucr.edu'
-#alias sshdragon='ssh dragonh1@107.180.21.22'
-alias sshTS='ssh 557f2f374382ecfc5a000088@tweetsearcher-programhenry.rhcloud.com'
-alias rm='rm -I'
-alias keystop='syndaemon -i 1 -K -d'
+#############################################
+# deletes all local branches except for master
+#############################################
+alias gbr='git branch | grep -v "master" | xargs git branch -D'
 
-########################
-#USEFUL functions below
-########################
+#############################################
+# undos last git commit
+#############################################
+alias gitundo='git reset HEAD~'
+
+#############################################
+# search history commands
+#############################################
+alias h='history | grep '
 
 
 #############################################
@@ -42,6 +41,8 @@ complete -F _upto upto
 # jd "FOLDER"
 #
 # jump down to a folder (can be slow) 
+#
+# * requires bash with globstar
 #############################################
 jd(){
     if [ -z "$1" ]; then
@@ -57,6 +58,8 @@ shopt -s globstar
 # md "file"
 #
 # view a markdown file in terminal
+#
+# * Requires pandoc to be installed
 #############################################
 md()
 {
@@ -67,22 +70,6 @@ md()
         pandoc -s -f markdown -t man $1 | man -l -
             fi
 }
-
-#############################################
-# killport "port#"
-#
-# kill a port in use
-#############################################
-killport()
-{
-    if [ -z $1 ]; then
-        echo "Usage: killport [port]"
-            return 1
-    else
-        fuser -k $1/tcp
-            fi
-}
-
 
 #############################################
 # switchGitRemote 
