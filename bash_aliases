@@ -40,7 +40,7 @@ complete -F _upto upto
 #############################################
 # jd "FOLDER"
 #
-# jump down to a folder (can be slow) 
+# jump down to a folder (can be slow)
 #
 # * requires bash with globstar
 #############################################
@@ -72,23 +72,24 @@ md()
 }
 
 #############################################
-# switchGitRemote 
+# switchGitRemote
 #
-# swaps git from https to ssh and vise versa 
+# swaps git from https to ssh and vise versa
 #############################################
 
 switchGitRemote()
 {
     current=$(git remote -v | head -1)
-    httpurl="https://github.com/"
-    sshurl="git@github.com:"
-    if [[ "$current" == *"git@github.com:"* ]]; then
-        #echo "current had git@github.com:"
+    gitHost="github.com"
+    httpurl="https://$gitHost/"
+    sshurl="git@$gitHost:"
+    if [[ "$current" == *"$sshurl"* ]]; then
+        echo "Switching $current to $sshurl"
         res=$(echo "$current" | cut -d' ' -f1 | cut -d':' -f2)
         git remote set-url origin $httpurl$res
         echo -e "converted\n $current\n to \n$httpurl$res"
-    elif [[ "$current" == *"https://github.com/"* ]]; then
-        #echo "current had https://github.com"
+    elif [[ "$current" == *"$httpurl"* ]]; then
+        echo "Switching $current to $httpurl"
         user=$(echo "$current" | cut -d'/' -f4)
         res=$(echo "$current" | cut -d' ' -f1 | cut -d'/' -f5 )
         res="$user/$res"
@@ -97,5 +98,3 @@ switchGitRemote()
     fi
 
 }
-
-
