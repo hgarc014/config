@@ -1,32 +1,70 @@
 #!/bin/bash
 
+debug_flag=false
+single_flag=false
 
-#Path to config file
-dir=$HOME/dotfiles
-#Path to backup file
-olddir=$HOME/old_dotfiles
-#files in current directory
-files=$(ls -I *.sh)
+usage () {
+  echo -e "-d \tto turn on debugging\
+  \n-s <file> \tto add a single file\
+  \n-h \tfor help";
+}
+
+options=':dhs:'
+while getopts $options option
+do
+    case "$option" in
+        d  ) debug_flag=true;;
+        s  ) single_flag=true;single_value=$OPTARG;;
+        h  ) usage; exit;;
+        \? ) echo "Unknown option: -$OPTARG" >&2; exit 1;;
+        :  ) echo "Missing option argument for -$OPTARG" >&2; exit 1;;
+        *  ) echo "Unimplemented option: -$OPTARG" >&2; exit 1;;
+    esac
+done
+
+cmd(){
+  cmd="$1"
+  if [ "$debug_flag" = true ]; then
+    echo "DEBUG: $cmd"
+  fi
+  eval "$cmd"
+}
 
 #moves old file to backup file if exists
 #then creates a link to config folder
 addFile(){
     file="$1"
+
+    echo "creating link for $file"
     if [ -e "$HOME/.$file" ] || [ -h "$HOME/.$file" ] ;then
-        echo "moving current $HOME/.$file to $olddir"
-        mv "$HOME/.$file" "$olddir"
-    else
-        echo "current $HOME/.$file didn't exist"
+        cmd "mv "$HOME/.$file" "$olddir""
     fi
 
-    echo -e "creating $HOME/.$file linked to $dir/$file\n"
-    ln -s "$dir/$file" "$HOME/.$file"
+    cmd "ln -s "$dir/$file" "$HOME/.$file""
 }
 
-echo -e "creating $olddir for backup of current dotfiles in $HOME\n"
-mkdir -p $olddir
+
+###
+###
+############ Main ##########
+###
+###
+
+
+
+#Path to config file
+dir=$(pwd)
+#Path to backup file
+olddir=$HOME/old_dotfiles
+#files in current directory ignoring .sh (mac does not have this functionality)
+#files=$(ls -I *.sh)
+files=$(find . -maxdepth 1 ! -path "*sh" ! -path "*.md" -type f -exec basename {} \;)
+
+echo -e "backing up files to: $olddir\n"
+cmd "mkdir -p $olddir"
 
 for file in $files; do
-    addFile "$file"
+    if [ "$single_flag" = "false" ] || [ "$file" == "$single_value" ]; then
+      addFile "$file"
+    fi
 done
-
