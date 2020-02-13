@@ -1,7 +1,9 @@
 [user]
 	name = Henry Garcia
-	email = hgarc014@ucr.edu
+    email = 01henrygarcia10@gmail.com
 [push]
 	default = simple
-[credential]
-	helper = cache --timeout=3600
+[pager]
+	branch = false
+[branch]
+	autosetuprebase = always
