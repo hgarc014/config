@@ -1,9 +1,18 @@
 [user]
-	name = Henry Garcia
-    email = 01henrygarcia10@gmail.com
+	name = henry.garcia
+	email = henry.garcia@servicenow.com
 [push]
 	default = simple
 [pager]
 	branch = false
-[branch]
-	autosetuprebase = always
+[core]
+	autocrlf = input
+	excludesfile = /Users/henry.garcia/.gitignore_global
+[credential]
+	helper = osxkeychain
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Users/henry.garcia/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
