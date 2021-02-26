@@ -1,0 +1,11 @@
+[user]
+	name = henry.garcia
+	email = henry.garcia@servicenow.com
+[branch]
+	autosetuprebase = always
+[core]
+	autocrlf = input
+[credential]
+	helper = osxkeychain
+[pager]
+	branch = false
