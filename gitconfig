@@ -1,9 +1,0 @@
-[user]
-	name = Henry Garcia
-    email = 01henrygarcia10@gmail.com
-[push]
-	default = simple
-[pager]
-	branch = false
-[branch]
-	autosetuprebase = always
