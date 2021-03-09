@@ -21,3 +21,21 @@ alias ls='ls -G '
 ############# ALIAS FUNCTIONS  ##############
 #############################################
 
+gitclean(){
+   git branch | grep $1 | xargs git branch -D
+}
+
+## requires installation of jq
+#precmd(){
+#  if [ -f package.json ]
+#  then
+#    nodeVersion=$(jq -r '.engines.node | select(.!=null)' package.json | tr -d -c 0-9.)
+#    nodeOperator=$(jq -r '.engines.node | select(.!=null)' package.json | tr -d -c \>\<\=)
+#    if [ ! -z $nodeVersion ] \
+#    && [[ ! $(nvm current) = "^v$nodeVersion" ]]
+#    then
+#      echo "found $nodeVersion in package.json engine"
+#      nvm use ${nodeVersion:0:2}
+#    fi
+#  fi
+#}
