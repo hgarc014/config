@@ -100,8 +100,14 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # devtools
-source /usr/local/Homebrew/Library/Taps/now/homebrew-devtools/etc/zshrc
+#source /usr/local/Homebrew/Library/Taps/now/homebrew-devtools/etc/zshrc
+
 # install NVM_DIR
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# add brew
+eval $(/opt/homebrew/bin/brew shellenv)
+
+

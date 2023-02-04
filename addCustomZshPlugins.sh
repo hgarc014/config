@@ -1,4 +1,6 @@
 
+git clone https://github.com/ohmyzsh/ohmyzsh.git ${ZSH_CUSTOM:-~/.oh-my-zsh}
+
 # real time auto suggestions as you type
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
