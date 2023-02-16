@@ -111,3 +111,5 @@ export NVM_DIR="$HOME/.nvm"
 eval $(/opt/homebrew/bin/brew shellenv)
 
 
+source /opt/homebrew/Library/Taps/now/homebrew-devtools/etc/zshrc
+nvm use default

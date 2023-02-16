@@ -16,7 +16,9 @@ alias h='history | grep '
 # colored ls command
 alias ls='ls -G '
 
-alias work="cd $HOME/git/snc/"
+alias gwork="cd $HOME/git/snc/"
+
+alias gpersonal="cd $HOME/git/personal/"
 
 
 #############################################
