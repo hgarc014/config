@@ -13,7 +13,6 @@ alias gitundo='git reset HEAD~'
 # search history commands
 alias h='history | grep '
 
-# testing
 # colored ls command
 alias ls='ls -G '
 
@@ -24,7 +23,7 @@ alias gpersonal="cd $HOME/git/personal/"
 alias mvn='mvn -Dfrontend.version=1.11.0 '
 
 
-echo "TMP: using mvn version to 1.11.0 for M1"
+echo "TMP ALIAS: using mvn version to 1.11.0 for M1"
 alias mvn='mvn -Dfrontend.version=1.11.0 '
 
 alias npml='npm run lint -- --quiet'
