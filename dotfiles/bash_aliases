@@ -20,6 +20,12 @@ alias gwork="cd $HOME/git/snc/"
 
 alias gpersonal="cd $HOME/git/personal/"
 
+alias mvn='mvn -Dfrontend.version=1.11.0 '
+
+
+echo "TMP: using mvn version to 1.11.0 for M1"
+alias mvn='mvn -Dfrontend.version=1.11.0 '
+
 
 #############################################
 ############# ALIAS FUNCTIONS  ##############
