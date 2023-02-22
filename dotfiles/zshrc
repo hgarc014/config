@@ -101,6 +101,8 @@ source $ZSH/oh-my-zsh.sh
 
 # devtools
 #source /usr/local/Homebrew/Library/Taps/now/homebrew-devtools/etc/zshrc
+source /usr/local/Homebrew/Library/Taps/now/homebrew-devtools/etc/zshrc
+source /usr/local/Homebrew/Library/Taps/now/homebrew-devtools/etc/commonrc
 
 # install NVM_DIR
 export NVM_DIR="$HOME/.nvm"
