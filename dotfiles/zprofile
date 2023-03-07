@@ -1,3 +1,6 @@
 if [ -f ~/.bash_aliases ]; then
    . ~/.bash_aliases
 fi
+
+PATH=$(/opt/homebrew/bin/pyenv root)/shims:$PATH
+

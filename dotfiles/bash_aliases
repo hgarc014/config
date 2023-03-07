@@ -17,8 +17,9 @@ alias h='history | grep '
 alias ls='ls -G '
 
 alias gwork="cd $HOME/git/snc/"
-
 alias gpersonal="cd $HOME/git/personal/"
+alias fd="nvm use default && cd $HOME/git/snc/track_ipaas/glide-flow-designer/"
+alias fdg="nvm use 14.18 && cd $HOME/git/snc/track_ipaas/flow-diagramming/"
 
 alias mvn='mvn -Dfrontend.version=1.11.0 '
 
