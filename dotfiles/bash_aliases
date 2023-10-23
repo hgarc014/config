@@ -31,12 +31,15 @@ alias npml='npm run lint -- --quiet'
 
 alias chromeb="open -na Google\ Chrome --args --user-data-dir=/tmp/temporary-chrome-profile-dir --disable-web-security"
 
+alias emulator="~/Library/Android/sdk/emulator/emulator"
+
 #############################################
 ############# ALIAS FUNCTIONS  ##############
 #############################################
 
 updatetectonic() {
-    npm uninstall -g @tectonic/cli && npm i -g @tectonic/cli@$1
+    ver="$1"
+    npm uninstall -g @tectonic/cli && npm i -g @tectonic/cli@$ver && npm uninstall && npm i @tectonic/cli@$ver
 }
 
 gitclean(){
@@ -55,6 +58,30 @@ fixdisp(){
 
 mvnglide(){
     cd ../glide-process-flow && mvn clean install -DskipTests && cd ../glide-flow-service && mvn clean install -DskipTests && cd ../glide-launcher && mvn clean install -DskipTests && cd ../glide && mvn clean install -DskipTests
+}
+
+clearSetVars() {
+
+    export USERNAME=""
+    export UNAME=""
+    export PASSWORD=""
+    export GLIDE_URL=""
+}
+
+setVars(){
+    un="$1"
+    pw="$2"
+    url="$3"
+    startI="$4"
+    endI="$5"
+
+    export USERNAME="$un"
+    export UNAME="$un"
+    export PASSWORD="$pw"
+    export GLIDE_URL="$url"
+    export STARTINDEX="$startI"
+    export ENDINDEX="$endI"
+
 }
 
 ## requires installation of jq
